@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dt57rrhg6vic"]
+
+[ext_resource type="Script" uid="uid://dby1x3nhd8pte" path="res://scripts/canvas_layer.gd" id="1_dm1fx"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=457919992]
+script = ExtResource("1_dm1fx")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=930991801]
+offset_right = 299.0
+offset_bottom = 85.0
+offset_transform_enabled = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=287466920]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1622842741]
+layout_mode = 2
+text = "han solo"
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer" unique_id=681993378]
+layout_mode = 2
+text = "welcon sir"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2014341804]
+layout_mode = 2
+text = "continiu..."

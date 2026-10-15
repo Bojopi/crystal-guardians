@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cupcs0cyv5xk7"]
 
+[ext_resource type="Script" uid="uid://cp3t2ya862jjg" path="res://scripts/npc.gd" id="1_abqhh"]
 [ext_resource type="Texture2D" uid="uid://dn5s0tb1enjbp" path="res://assets/npc/npc.png" id="1_nh2m4"]
+[ext_resource type="Texture2D" uid="uid://cmh01uqumat6i" path="res://assets/npc/npc_retrato_hablando.png" id="3_rv78h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abqhh"]
 atlas = ExtResource("1_nh2m4")
@@ -18,7 +20,7 @@ region = Rect2(132, 0, 66, 77)
 atlas = ExtResource("1_nh2m4")
 region = Rect2(198, 0, 66, 77)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5aq51"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ithms"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -34,29 +36,34 @@ animations = [{
 "texture": SubResource("AtlasTexture_4wlns")
 }],
 "loop": 1,
-"name": &"idle",
+"name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iupvx"]
-radius = 31.571426
-height = 86.285706
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ithms"]
+radius = 61.0
+height = 122.0
 
-[node name="NPC" type="Node2D" unique_id=81617126]
-scale = Vector2(0.7, 0.7)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(57, 84)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1215978376]
-scale = Vector2(0.99999994, 0.99999994)
-sprite_frames = SubResource("SpriteFrames_5aq51")
-animation = &"idle"
-frame = 1
-frame_progress = 0.7557339
+[node name="Node2D" type="Node2D" unique_id=1718500621]
 
-[node name="InteractiveArea" type="Area2D" parent="." unique_id=47325955]
-scale = Vector2(0.99999994, 0.99999994)
-collision_layer = 0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1054397839]
+position = Vector2(-2, 1)
+sprite_frames = SubResource("SpriteFrames_ithms")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea" unique_id=1329018263]
-position = Vector2(-3.0000002, 4.0000005)
-scale = Vector2(1.0000001, 1.0000001)
-shape = SubResource("CapsuleShape2D_iupvx")
+[node name="Area2D" type="Area2D" parent="." unique_id=463493811]
+position = Vector2(-2, 1)
+script = ExtResource("1_abqhh")
+retrato = ExtResource("3_rv78h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=43494963]
+position = Vector2(-2, 2)
+shape = SubResource("CapsuleShape2D_ithms")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=770498678]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1331088626]
+position = Vector2(-3.5, 1)
+shape = SubResource("RectangleShape2D_vanes")

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://b5e708v11did"]
+
+[ext_resource type="Script" uid="uid://dbn107yiw8kh1" path="res://scripts/cristal.gd" id="1_qjblc"]
+[ext_resource type="Texture2D" uid="uid://d0lfa664pfidb" path="res://assets/items/Pixel Art Blue Crystal Sprite Sheet.png" id="2_qjblc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnv63"]
+atlas = ExtResource("2_qjblc")
+region = Rect2(0, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs2wp"]
+atlas = ExtResource("2_qjblc")
+region = Rect2(271, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s6mi"]
+atlas = ExtResource("2_qjblc")
+region = Rect2(542, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gohg3"]
+atlas = ExtResource("2_qjblc")
+region = Rect2(813, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y0ek"]
+atlas = ExtResource("2_qjblc")
+region = Rect2(1084, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcvvo"]
+atlas = ExtResource("2_qjblc")
+region = Rect2(1355, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_motxs"]
+atlas = ExtResource("2_qjblc")
+region = Rect2(1626, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_misr2"]
+atlas = ExtResource("2_qjblc")
+region = Rect2(1897, 0, 271, 724)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eb53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnv63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs2wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s6mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gohg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y0ek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcvvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_motxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_misr2")
+}],
+"loop": 1,
+"name": &"cristal",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0eb53"]
+radius = 20.0
+height = 74.0
+
+[node name="cristal" type="Area2D" unique_id=1441518550]
+script = ExtResource("1_qjblc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1375109513 groups=["navigation_polygon_source_geometry_group"]]
+position = Vector2(1, 1)
+scale = Vector2(0.20701109, 0.2)
+sprite_frames = SubResource("SpriteFrames_0eb53")
+animation = &"cristal"
+frame_progress = 0.37060052
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=429045172]
+shape = SubResource("CapsuleShape2D_0eb53")

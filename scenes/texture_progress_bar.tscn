@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://biboxlmgknp6a"]
+
+[ext_resource type="Texture2D" uid="uid://cmfrq2sooii7b" path="res://assets/ui/corazones_vacios_4.png" id="1_k81lb"]
+[ext_resource type="Texture2D" uid="uid://b6fo2vbohn2e5" path="res://assets/ui/corazones_llenos_4.png" id="2_0q7dn"]
+[ext_resource type="Script" uid="uid://bmw4opnjn7wci" path="res://scripts/texture_progress_bar.gd" id="3_0q7dn"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" unique_id=147202217]
+offset_right = 1530.0
+offset_bottom = 330.0
+scale = Vector2(0.5, 0.5)
+max_value = 4.0
+value = 4.0
+texture_under = ExtResource("1_k81lb")
+texture_progress = ExtResource("2_0q7dn")
+script = ExtResource("3_0q7dn")

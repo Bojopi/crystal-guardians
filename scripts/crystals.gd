@@ -1,15 +1,14 @@
-
 extends Label
 
-var cristales: int = 0
 
 func _ready() -> void:
 	add_to_group("hud")
+	QuestManager.quest_updated.connect(actualizar_texto)
 	actualizar_texto()
 
-func sumar_cristal() -> void:
-	cristales += 1
-	actualizar_texto()
 
 func actualizar_texto() -> void:
-	text = "Cristales: " + str(cristales)
+	text = "Cristales: %d/%d" % [
+		QuestManager.collected_crystals,
+		QuestManager.required_crystals
+	]

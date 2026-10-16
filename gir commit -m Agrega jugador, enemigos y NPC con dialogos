@@ -1,0 +1,78 @@
+ .editorconfig                                      |    4 [32m+[m
+ .gitattributes                                     |    2 [32m+[m
+ .gitignore                                         |    3 [32m+[m
+ .../12-Frame Retro Boy Walking Sprite Sheet.png    |  Bin [31m0[m -> [32m2322753[m bytes
+ ...Frame Retro Boy Walking Sprite Sheet.png.import |   40 [32m+[m
+ .../Pixel Boy RPG Walking Sprite Sheet.png         |  Bin [31m0[m -> [32m1831037[m bytes
+ .../Pixel Boy RPG Walking Sprite Sheet.png.import  |   40 [32m+[m
+ assets/characters/character.png                    |  Bin [31m0[m -> [32m181548[m bytes
+ assets/characters/character.png.import             |   40 [32m+[m
+ assets/characters/chico_hoja_separada.png          |  Bin [31m0[m -> [32m826377[m bytes
+ assets/characters/chico_hoja_separada.png.import   |   40 [32m+[m
+ .../Red Astronaut Walking Cycle Sprite Sheet.png   |  Bin [31m0[m -> [32m879781[m bytes
+ ...Astronaut Walking Cycle Sprite Sheet.png.import |   40 [32m+[m
+ .../enemies/Red Ninja Robot Slash Sprite Sheet.png |  Bin [31m0[m -> [32m491461[m bytes
+ .../Red Ninja Robot Slash Sprite Sheet.png.import  |   40 [32m+[m
+ assets/enemies/ataque_abajo_sin_fondo.png          |  Bin [31m0[m -> [32m1662290[m bytes
+ assets/enemies/ataque_abajo_sin_fondo.png.import   |   40 [32m+[m
+ assets/enemies/ataque_arriba_sin_fondo.png         |  Bin [31m0[m -> [32m2008291[m bytes
+ assets/enemies/ataque_arriba_sin_fondo.png.import  |   40 [32m+[m
+ .../ataque_derecha_izquierda_7frames_separados.png |  Bin [31m0[m -> [32m412346[m bytes
+ ..._derecha_izquierda_7frames_separados.png.import |   40 [32m+[m
+ assets/enemies/guard.png                           |  Bin [31m0[m -> [32m180751[m bytes
+ assets/enemies/guard.png.import                    |   40 [32m+[m
+ assets/items/01_barril.png                         |  Bin [31m0[m -> [32m7952[m bytes
+ assets/items/01_barril.png.import                  |   40 [32m+[m
+ assets/items/02_caja.png                           |  Bin [31m0[m -> [32m9015[m bytes
+ assets/items/02_caja.png.import                    |   40 [32m+[m
+ assets/items/37_puerta_salida.png                  |  Bin [31m0[m -> [32m31672[m bytes
+ assets/items/37_puerta_salida.png.import           |   40 [32m+[m
+ .../items/Pixel Art Blue Crystal Sprite Sheet.png  |  Bin [31m0[m -> [32m547056[m bytes
+ .../Pixel Art Blue Crystal Sprite Sheet.png.import |   40 [32m+[m
+ assets/items/crystal.png                           |  Bin [31m0[m -> [32m7103[m bytes
+ assets/items/crystal.png.import                    |   40 [32m+[m
+ assets/npc/npc.png                                 |  Bin [31m0[m -> [32m163446[m bytes
+ assets/npc/npc.png.import                          |   40 [32m+[m
+ assets/npc/npc_retrato.png                         |  Bin [31m0[m -> [32m1841[m bytes
+ assets/npc/npc_retrato.png.import                  |   40 [32m+[m
+ assets/npc/npc_retrato_hablando.png                |  Bin [31m0[m -> [32m1852[m bytes
+ assets/npc/npc_retrato_hablando.png.import         |   40 [32m+[m
+ assets/terrain/agua.png                            |  Bin [31m0[m -> [32m258173[m bytes
+ assets/terrain/agua.png.import                     |   40 [32m+[m
+ assets/terrain/bloques_piedra.png                  |  Bin [31m0[m -> [32m359053[m bytes
+ assets/terrain/bloques_piedra.png.import           |   40 [32m+[m
+ assets/terrain/tierra.png                          |  Bin [31m0[m -> [32m337396[m bytes
+ assets/terrain/tierra.png.import                   |   40 [32m+[m
+ assets/ui/Pixel Art Heart Life Bar Sprite.png      |  Bin [31m0[m -> [32m747320[m bytes
+ .../ui/Pixel Art Heart Life Bar Sprite.png.import  |   40 [32m+[m
+ assets/ui/canvas_layer.tscn                        |   26 [32m+[m
+ assets/ui/corazones_llenos_4.png                   |  Bin [31m0[m -> [32m322409[m bytes
+ assets/ui/corazones_llenos_4.png.import            |   40 [32m+[m
+ assets/ui/corazones_vacios_4.png                   |  Bin [31m0[m -> [32m298829[m bytes
+ assets/ui/corazones_vacios_4.png.import            |   40 [32m+[m
+ icon.svg                                           |    1 [32m+[m
+ icon.svg.import                                    |   43 [32m+[m
+ project.godot                                      |   73 [32m+[m
+ scenes/character_body_2d.tscn                      |  319 [32m+++[m
+ scenes/cristal.tscn                                |   85 [32m+[m
+ scenes/enemigos.tscn                               |  401 [32m++++[m
+ scenes/main.tscn                                   | 2339 [32m++++++++++++++++++++[m
+ scenes/npc.tscn                                    |   69 [32m+[m
+ scenes/texture_progress_bar.tscn                   |   15 [32m+[m
+ scripts/canvas_layer.gd                            |   81 [32m+[m
+ scripts/canvas_layer.gd.uid                        |    1 [32m+[m
+ scripts/character_body_2d.gd                       |   78 [32m+[m
+ scripts/character_body_2d.gd.uid                   |    1 [32m+[m
+ scripts/cristal.gd                                 |   20 [32m+[m
+ scripts/cristal.gd.uid                             |    1 [32m+[m
+ scripts/crystals.gd                                |   15 [32m+[m
+ scripts/crystals.gd.uid                            |    1 [32m+[m
+ scripts/enemigos.gd                                |  172 [32m++[m
+ scripts/enemigos.gd.uid                            |    1 [32m+[m
+ scripts/gameover.gd                                |   25 [32m+[m
+ scripts/gameover.gd.uid                            |    1 [32m+[m
+ scripts/npc.gd                                     |   35 [32m+[m
+ scripts/npc.gd.uid                                 |    1 [32m+[m
+ scripts/texture_progress_bar.gd                    |   39 [32m+[m
+ scripts/texture_progress_bar.gd.uid                |    1 [32m+[m
+ 77 files changed, 4813 insertions(+)

@@ -3,6 +3,10 @@ extends Node
 const SAVE_DIRECTORY := "user://saves/"
 const FIRST_LEVEL := "res://scenes/level_1.tscn"
 
+# Cantidad máxima de partidas guardadas.
+# Si se supera, se elimina la más antigua.
+const MAX_SAVES := 5
+
 var pending_data: Dictionary = {}
 
 
@@ -58,7 +62,9 @@ func save_game(
 		push_error("La escena del nivel no existe")
 		return false
 
-	if slot_id <= 0:
+	var is_new_save := slot_id <= 0
+
+	if is_new_save:
 		slot_id = get_next_slot_id()
 
 	var data: Dictionary = {
@@ -92,7 +98,60 @@ func save_game(
 	file.close()
 
 	print("Partida guardada en: ", path)
+
+	# Una partida nueva puede superar el límite.
+	# Sobrescribir una existente no cambia la cantidad.
+	if is_new_save:
+		enforce_save_limit(slot_id)
+
 	return true
+
+
+# Eliminar las partidas más antiguas si se supera MAX_SAVES.
+# keep_slot_id protege la partida recién creada.
+func enforce_save_limit(keep_slot_id: int = 0) -> void:
+	var saves := get_saved_games()
+
+	# Ordenar de la más antigua a la más reciente.
+	saves.sort_custom(
+		func(a: Dictionary, b: Dictionary) -> bool:
+			var date_a := str(a.get("saved_at", ""))
+			var date_b := str(b.get("saved_at", ""))
+
+			if date_a == date_b:
+				return int(a["slot_id"]) < int(b["slot_id"])
+
+			return date_a < date_b
+	)
+
+	var remaining := saves.size()
+
+	for save in saves:
+		if remaining <= MAX_SAVES:
+			break
+
+		var old_slot_id := int(save["slot_id"])
+
+		if old_slot_id == keep_slot_id:
+			continue
+
+		delete_save(old_slot_id)
+		remaining -= 1
+
+
+# Borrar el archivo de una partida.
+func delete_save(slot_id: int) -> void:
+	var path := get_save_path(slot_id)
+
+	if not FileAccess.file_exists(path):
+		return
+
+	var error := DirAccess.remove_absolute(path)
+
+	if error != OK:
+		push_error("No se pudo borrar la partida: %s" % path)
+	else:
+		print("Partida antigua eliminada: ", path)
 
 
 # Leer un archivo sin cargar todavía el nivel.

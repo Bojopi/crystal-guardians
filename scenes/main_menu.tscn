@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dfg4d7gudufot" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://mhue3viywloy" path="res://assets/ui/Panorama fantástica bajo la luna.png" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://bc7n0dlwxuo7l" path="res://scenes/save_slots.tscn" id="3_wu84c"]
+[ext_resource type="AudioStream" uid="uid://y72jeuk74buh" path="res://assets/audio/music/ambient_demo.wav" id="4_wu84c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aq51"]
 content_margin_left = 24.0
@@ -129,3 +130,7 @@ text = "SALIR"
 
 [node name="SaveSlots" parent="." unique_id=2046099463 instance=ExtResource("3_wu84c")]
 layout_mode = 1
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=539088253]
+stream = ExtResource("4_wu84c")
+autoplay = true

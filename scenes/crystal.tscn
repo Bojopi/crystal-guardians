@@ -2,13 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://bkurq4erhw524" path="res://assets/items/crystal.png" id="1_0mmd5"]
 [ext_resource type="Script" uid="uid://dlaittdplqf57" path="res://scripts/crystal.gd" id="1_t4dcj"]
+[ext_resource type="AudioStream" uid="uid://86uar34vshpw" path="res://assets/audio/sfx/collect_crystal.wav" id="2_g5hse"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iupvx"]
 radius = 11.0
 
-[node name="crystal" type="Area2D" unique_id=1803785542]
+[node name="crystal" type="Area2D" unique_id=1803785542 groups=["crystals"]]
 collision_layer = 0
 script = ExtResource("1_t4dcj")
+crystal_audio = ExtResource("2_g5hse")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1862381716]
 scale = Vector2(0.6, 0.6)

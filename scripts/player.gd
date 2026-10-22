@@ -9,6 +9,8 @@ signal died
 @export var attack_damage: int = 20
 @export var attack_cooldown: float = 0.5
 
+@export var attack_audio: AudioStream
+
 var health: int
 var is_dead: bool = false
 var is_attacking: bool = false
@@ -16,6 +18,8 @@ var attack_timer: float = 0.0
 
 @onready var attack_area: Area2D = $AttackArea
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var game_camera: Camera2D = $Camera2D
+@onready var flashlight: PointLight2D = $Flashlight
 
 
 func _ready() -> void:
@@ -47,6 +51,9 @@ func _physics_process(delta: float) -> void:
 		"move_up",
         "move_down"
 	)
+	
+	if direction.length() > 0:
+		flashlight.rotation = direction.angle()
 
 	velocity = direction * speed
 	move_and_slide()
@@ -68,6 +75,7 @@ func attack() -> void:
 	attack_timer = attack_cooldown
 
 	animatedSprite.play("attack")
+	AudioManager.play_sfx(attack_audio)
 
 	for body in attack_area.get_overlapping_bodies():
 		if body.is_in_group("enemies"):
@@ -91,9 +99,37 @@ func take_damage(amount: int) -> void:
 	health = maxi(health - amount, 0)
 
 	health_changed.emit(health, max_health)
+	game_camera.shake(10.0, 0.3)
 
 	if health == 0:
 		is_dead = true
 		is_attacking = false
 		velocity = Vector2.ZERO
 		animatedSprite.play("death")
+
+func set_flashlight_enabled(value: bool) -> void:
+	flashlight.enabled = value
+
+
+func heal(amount: int) -> void:
+	if is_dead:
+		return
+
+	if health >= max_health:
+		return
+
+	var previous_health := health
+
+	health = mini(
+		health + amount,
+		max_health
+	)
+
+	health_changed.emit(health, max_health)
+
+	print(
+		"Vida recuperada: ",
+		health - previous_health,
+		" | Vida actual: ",
+		health
+	)

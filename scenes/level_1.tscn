@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://8b3u2cbckgnj" path="res://scenes/portal.tscn" id="10_isj1j"]
 [ext_resource type="PackedScene" uid="uid://fx5xbqglbdjm" path="res://scenes/game_hud.tscn" id="11_so66j"]
 [ext_resource type="PackedScene" uid="uid://nyglr73qiwne" path="res://scenes/pause_menu.tscn" id="12_go7sj"]
+[ext_resource type="AudioStream" uid="uid://dmru86drkcrxe" path="res://assets/audio/music/bgAudio.wav" id="13_7gny6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("2_go7sj")
@@ -1153,15 +1154,15 @@ position = Vector2(63, 322)
 
 [node name="crystals" type="Node" parent="." unique_id=375949646]
 
-[node name="crystal" parent="crystals" unique_id=1803785542 groups=["crystals"] instance=ExtResource("7_1s4pk")]
+[node name="crystal" parent="crystals" unique_id=1803785542 instance=ExtResource("7_1s4pk")]
 position = Vector2(395, 325)
 crystal_id = "crystal_01"
 
-[node name="crystal2" parent="crystals" unique_id=114229014 groups=["crystals"] instance=ExtResource("7_1s4pk")]
+[node name="crystal2" parent="crystals" unique_id=114229014 instance=ExtResource("7_1s4pk")]
 position = Vector2(726, 77)
 crystal_id = "crystal_02"
 
-[node name="crystal3" parent="crystals" unique_id=1309006190 groups=["crystals"] instance=ExtResource("7_1s4pk")]
+[node name="crystal3" parent="crystals" unique_id=1309006190 instance=ExtResource("7_1s4pk")]
 position = Vector2(1019, 512)
 crystal_id = "crystal_03"
 
@@ -1185,3 +1186,8 @@ next_level = "uid://pwrchinmwndh"
 [node name="GameHUD" parent="." unique_id=565920768 instance=ExtResource("11_so66j")]
 
 [node name="PauseMenu" parent="." unique_id=544714541 instance=ExtResource("12_go7sj")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1418840489]
+stream = ExtResource("13_7gny6")
+volume_db = -5.0
+autoplay = true

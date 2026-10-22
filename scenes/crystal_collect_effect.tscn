@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d1cvkgsk17udb"]
+
+[ext_resource type="Script" uid="uid://cmwp725wpyalu" path="res://scripts/crystal_collect_effect.gd" id="1_oyy1s"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k2qmy"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 90.0
+gravity = Vector3(0, 80, 0)
+scale_max = 3.0
+color = Color(0, 0.5764706, 0.8745098, 1)
+
+[node name="CrystalCollectEffect" type="Node2D" unique_id=792235274]
+script = ExtResource("1_oyy1s")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=899640902]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_k2qmy")

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 QuestManager="*uid://cimsjcl4lrkb3"
 SaveManager="*uid://rg14xsd5l761"
+AudioManager="*uid://deiyem84k5xgc"
 
 [display]
 

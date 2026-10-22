@@ -10,7 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://cfej7g505n4da" path="res://scenes/guard.tscn" id="8_7qsfm"]
 [ext_resource type="PackedScene" uid="uid://uu2ogim4hy2v" path="res://scenes/dialogue_ui.tscn" id="9_bv48q"]
 [ext_resource type="PackedScene" uid="uid://8b3u2cbckgnj" path="res://scenes/portal.tscn" id="10_k22d5"]
+[ext_resource type="PackedScene" uid="uid://nyglr73qiwne" path="res://scenes/pause_menu.tscn" id="11_172wr"]
 [ext_resource type="PackedScene" uid="uid://fx5xbqglbdjm" path="res://scenes/game_hud.tscn" id="11_k6a82"]
+[ext_resource type="Script" uid="uid://bvcdoin45p24q" path="res://scripts/random_lighting.gd" id="13_g2hoc"]
+[ext_resource type="Script" uid="uid://dbl3omncl1djm" path="res://scripts/heart_spawner.gd" id="14_fldb1"]
+[ext_resource type="PackedScene" uid="uid://nuiqmproc3jw" path="res://scenes/health_heart.tscn" id="15_guvtl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("2_172wr")
@@ -1154,12 +1158,15 @@ position = Vector2(1108, 110)
 
 [node name="crystal" parent="crystals" unique_id=1803785542 instance=ExtResource("7_wdtqu")]
 position = Vector2(395, 325)
+crystal_id = "crystal_04"
 
 [node name="crystal2" parent="crystals" unique_id=114229014 instance=ExtResource("7_wdtqu")]
 position = Vector2(108, 401)
+crystal_id = "crystal_05"
 
 [node name="crystal3" parent="crystals" unique_id=1309006190 instance=ExtResource("7_wdtqu")]
 position = Vector2(843, 296)
+crystal_id = "crystal_06"
 
 [node name="guards" type="Node" parent="." unique_id=1735195233]
 
@@ -1177,4 +1184,39 @@ position = Vector2(922, 219.00003)
 [node name="Portal" parent="." unique_id=1608960640 instance=ExtResource("10_k22d5")]
 position = Vector2(920, 301)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=87103824]
+color = Color(0.14509805, 0.16862746, 0.2509804, 1)
+
+[node name="PauseMenu" parent="." unique_id=544714541 instance=ExtResource("11_172wr")]
+
 [node name="GameHUD" parent="." unique_id=565920768 instance=ExtResource("11_k6a82")]
+
+[node name="RandomLighting" type="Node" parent="." unique_id=1213232358]
+script = ExtResource("13_g2hoc")
+
+[node name="LightingTimer" type="Timer" parent="RandomLighting" unique_id=2016576438]
+process_mode = 1
+one_shot = true
+
+[node name="HeartSpawner" type="Node2D" parent="." unique_id=1582050925]
+script = ExtResource("14_fldb1")
+heart_scene = ExtResource("15_guvtl")
+
+[node name="SpawnPoints" type="Node2D" parent="HeartSpawner" unique_id=43775187]
+
+[node name="Point1" type="Marker2D" parent="HeartSpawner/SpawnPoints" unique_id=2146966104]
+position = Vector2(214, 267)
+
+[node name="Point2" type="Marker2D" parent="HeartSpawner/SpawnPoints" unique_id=1959914566]
+position = Vector2(685, 463)
+
+[node name="Point3" type="Marker2D" parent="HeartSpawner/SpawnPoints" unique_id=1067257884]
+position = Vector2(359, 662)
+
+[node name="Point4" type="Marker2D" parent="HeartSpawner/SpawnPoints" unique_id=5802448]
+position = Vector2(1073, 142)
+
+[node name="Point5" type="Marker2D" parent="HeartSpawner/SpawnPoints" unique_id=237064181]
+position = Vector2(760, 31)
+
+[node name="SpawnTimer" type="Timer" parent="HeartSpawner" unique_id=1609567857]
